@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "boostrap": "^2.0.0",
     "bootstrap": "^5.0.1",
     "coingecko-api": "^1.0.10",
     "next": "10.2.2",
