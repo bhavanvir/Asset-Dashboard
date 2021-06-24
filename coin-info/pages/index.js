@@ -1,82 +1,41 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import CoinGecko from 'coingecko-api';
-import React from 'react';
-const coinGeckoClient = new CoinGecko();
+import Link from "next/link"
 
-export default function Home(props) {
-  const { data } = props.result;
-
-  const formatPercent = number => 
-    `${new Number(number).toFixed(2)}%`
-
-  const formatDollar = (number, maximumSignificantDigits) =>
-    new Intl.NumberFormat(
-      'en-US', 
-      { 
-        style: 'currency', 
-        currency: 'USD',
-        maximumSignificantDigits
-      })
-      .format(number);
-
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Coinmarketcap clone</title>
+        <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Coinmarketcap clone</h1>
+      <body class="d-flex h-100 text-center">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header class="mb-auto">
+                <div>
+                    <h3 class="float-md-start mb-0">Twofold</h3>
+                        <nav class="nav nav-masthead justify-content-center float-md-end">
+                        <a class="nav-link active" aria-current="page" href="/src/index.html">Home</a>
+                        <a class="nav-link" href="/src/stocks.html">Stocks</a>
+                        <a class="nav-link" href="/src/coins.html">Coins</a>
+                        <a class="nav-link" href="/src/about.html">About</a>
+                    </nav>
+                </div>
+            </header>
+        
+            <main class="px-3 container">
+                <div class="typewriter">
+                    <h1>Manage your assets.</h1>
+                </div>
+                <p class="lead">Twofold is an online platform for Stock and Cryptocurrency. Track the progress of your favourite assets with accurate and regularly updated figures.</p>
+            </main>
 
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th>24H Change</th>
-            <th>Price</th>
-            <th>Market cap</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(coin => (
-            <tr key={coin.id}>
-              <td>
-                <img 
-                  src={coin.image} 
-                  style={{width: 25, height: 25, marginRight: 10}} 
-                />
-                {coin.symbol.toUpperCase()}
-              </td>
-              <td> 
-                <span
-                  className={coin.price_change_percentage_24h > 0 ? (
-                    'text-success' 
-                  ) : 'text-danger'}
-                >
-                {formatPercent(coin.price_change_percentage_24h)}
-                </span>
-              </td>
-              <td>{formatDollar(coin.current_price, 20)}</td>
-              <td>{formatDollar(coin.market_cap, 12)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
+            <footer class="mt-auto text-black-50">
+                <p>Developed by <a href="https://github.com/bhavanvir" class="text-black">@bhavanvir</a> and <a href="https://github.com/alexwholland" class="text-black">@alexwholland</a>.</p>
+            </footer>
+        </div>
+      </body>
     </div>
   )
-  
-}
-
-export async function getServerSideProps(context) {
-  const params = {
-    order: CoinGecko.ORDER.MARKET_CAP_DESC
-  };
-  const result = await coinGeckoClient.coins.markets({params});
-  return {
-    props: {
-      result
-    },
-  }
 }
