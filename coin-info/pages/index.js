@@ -4,10 +4,11 @@ import Link from "next/link"
 
 export default function Home() {
   return (
+    
+
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Twofold: Stock and Cryptocurrency Prices</title>
       </Head>
 
       <body class="d-flex h-100 text-center">
@@ -16,10 +17,10 @@ export default function Home() {
                 <div>
                     <h3 class="float-md-start mb-0">Twofold</h3>
                         <nav class="nav nav-masthead justify-content-center float-md-end">
-                        <a class="nav-link active" aria-current="page" href="/src/index.html">Home</a>
-                        <a class="nav-link" href="/src/stocks.html">Stocks</a>
-                        <a class="nav-link" href="/src/coins.html">Coins</a>
-                        <a class="nav-link" href="/src/about.html">About</a>
+                        <a class="nav-link active" aria-current="page" href="/pages/index.js">Home</a>
+                        <a class="nav-link" href="#">Stocks</a>
+                        <a class="nav-link" href="#">Coins</a>
+                        <a class="nav-link" href="#">About</a>
                     </nav>
                 </div>
             </header>
@@ -35,7 +36,7 @@ export default function Home() {
                 <p>Developed by <a href="https://github.com/bhavanvir" class="text-black">@bhavanvir</a> and <a href="https://github.com/alexwholland" class="text-black">@alexwholland</a>.</p>
             </footer>
         </div>
-      </body>
+    </body>
     </div>
   )
 }

@@ -2,6 +2,8 @@ import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../src/style.css'
 
+
+
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
 }

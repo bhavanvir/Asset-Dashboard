@@ -1,6 +1,7 @@
 body {
   font-family: "Inter", sans-serif;
   background-color: rgba(0, 0, 0, 0) linear-gradient(rgb(248, 250, 253) 0%, rgba(248, 250, 253, 0) 413px) repeat scroll 0% 0%;
+  justify-content: center;
   color: #222531;
   max-width: 100%;
 }
