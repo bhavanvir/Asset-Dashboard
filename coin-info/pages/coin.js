@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import CoinGecko from 'coingecko-api';
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '../public/favicon-32x32.png'
+import CoinGecko from 'coingecko-api';
 const coinGeckoClient = new CoinGecko();
 
 export default function Home(props) {
@@ -28,7 +28,7 @@ export default function Home(props) {
         <title>Twofold: Stock and Cryptocurrency Prices</title>
       </Head>
 
-    <body className="d-flex h-100 text-white bg-dark">
+    <body className="d-flex h-100 text-center text-white bg-dark">
         <div className="d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header className="mb-auto">
                 <div>
@@ -36,7 +36,7 @@ export default function Home(props) {
                       <img className="float-md-start mb-0 img-icons" src={Logo}/>
                     </a>
                     <h3 className="float-md-start mb-0">Twofold</h3>
-                    <nav className="navbar nav-masthead justify-content-center float-md-end">
+                    <nav className="nav nav-masthead justify-content-center float-md-end">
                         <Link href="/">
                             <a className="nav-link">Home</a>
                         </Link>
@@ -48,7 +48,7 @@ export default function Home(props) {
             </header>
             <main className="px-3 container">
                 <div className="table-responsive">
-                    <table className="mb-auto table table-hover table-dark px-3 container">
+                    <table className="vert-spacing mb-auto table table-hover table-dark px-3 container">
                     <thead className="table-bordered">
                         <tr>
                         <th>Name</th>

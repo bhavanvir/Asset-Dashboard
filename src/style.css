@@ -38,10 +38,6 @@ div.wrapper {
   max-width: 42em;
 }
 
-.navbar {
-  margin-bottom: 25px;
-}
-
 .img-icons {
   padding-right: 5px;
 }
@@ -107,4 +103,8 @@ html {
 
 .table-bordered {
   border-color: #fff;
+}
+
+.vert-spacing {
+  margin-top: 35px;
 }
