@@ -38,6 +38,14 @@ div.wrapper {
   max-width: 42em;
 }
 
+.navbar {
+  margin-bottom: 25px;
+}
+
+.img-icons {
+  padding-right: 5px;
+}
+
 /* page fade-in animations */
 .container {
   animation: transitionIn 1.25s;
@@ -95,4 +103,8 @@ div.wrapper {
 
 html {
   scroll-behavior: smooth;
+}
+
+.table-bordered {
+  border-color: #fff;
 }

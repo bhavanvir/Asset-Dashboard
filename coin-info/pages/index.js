@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import Image from 'next/image'
+import Logo from '../public/favicon-32x32.png'
 
 export default function Home() {
   return (
@@ -9,31 +11,32 @@ export default function Home() {
         <title>Twofold: Stock and Cryptocurrency Prices</title>
       </Head>
 
-      <body class="d-flex h-100 text-center text-white bg-dark">
-        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-            <header class="mb-auto">
+      <body className="d-flex h-100 text-center text-white bg-dark">
+        <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header className="mb-auto">
                 <div>
-                    <h3 class="float-md-start mb-0">Twofold</h3>
-                    <nav class="nav nav-masthead justify-content-center float-md-end">
-                      <a class="nav-link active" aria-current="page">Home</a>
-                      <a class="nav-link" href="#">Stocks</a>
+                    <img className="float-md-start mb-0 img-icons" src={Logo}/>
+                    <h3 className="float-md-start mb-0">Twofold</h3>
+                    <nav className="nav nav-masthead justify-content-center float-md-end">
+                      <a className="nav-link active" aria-current="page">Home</a>
+                      <a className="nav-link" href="#">Stocks</a>
                       <Link href="/coin">
-                        <a class="nav-link">Coins</a>
+                        <a className="nav-link">Coins</a>
                       </Link>
-                      <a class="nav-link" href="#">About</a>
+                      <a className="nav-link" href="#">About</a>
                     </nav>
                 </div>
             </header>
         
-            <main class="px-3 container">
-                <div class="typewriter">
+            <main className="px-3 container">
+                <div className="typewriter">
                     <h1>Manage your assets.</h1>
                 </div>
-                <p class="lead">Twofold is an online platform for Stock and Cryptocurrency. Track the progress of your favourite assets with accurate and regularly updated figures.</p>
+                <p className="lead">Twofold is an online platform for Stock and Cryptocurrency. Track the progress of your favourite assets with accurate and regularly updated figures.</p>
             </main>
 
-            <footer class="mt-auto text-white-50">
-                <p>Developed by <a href="https://github.com/bhavanvir" class="text-white">@bhavanvir</a> and <a href="https://github.com/alexwholland" class="text-white">@alexwholland</a>.</p>
+            <footer className="mt-auto text-white-50">
+                <p>Developed by <a href="https://github.com/bhavanvir" className="text-white">@bhavanvir</a> and <a href="https://github.com/alexwholland" className="text-white">@alexwholland</a>.</p>
             </footer>
         </div>
     </body>
