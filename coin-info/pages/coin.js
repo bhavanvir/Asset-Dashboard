@@ -2,6 +2,8 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import CoinGecko from 'coingecko-api';
 import Link from 'next/link'
+import Image from 'next/image'
+import Logo from '../public/favicon-32x32.png'
 const coinGeckoClient = new CoinGecko();
 
 export default function Home(props) {
@@ -26,33 +28,35 @@ export default function Home(props) {
         <title>Twofold: Stock and Cryptocurrency Prices</title>
       </Head>
 
-    <body class="d-flex h-100 text-white bg-dark">
-        <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
-            <header class="mb-auto">
+    <body className="d-flex h-100 text-white bg-dark">
+        <div className="d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header className="mb-auto">
                 <div>
-                    <h3 class="float-md-start mb-0">Twofold</h3>
-                    <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a href="/">
+                      <img className="float-md-start mb-0 img-icons" src={Logo}/>
+                    </a>
+                    <h3 className="float-md-start mb-0">Twofold</h3>
+                    <nav className="navbar nav-masthead justify-content-center float-md-end">
                         <Link href="/">
-                            <a class="nav-link">Home</a>
+                            <a className="nav-link">Home</a>
                         </Link>
-                        <a class="nav-link" href="#">Stocks</a>
-                        <a class="nav-link active" aria-current="page">Coins</a>
-                        <a class="nav-link" href="#">About</a>
+                        <a className="nav-link" href="#">Stocks</a>
+                        <a className="nav-link active" aria-current="page">Coins</a>
+                        <a className="nav-link" href="#">About</a>
                     </nav>
                 </div>
             </header>
-
-            <main class="px-3 container">
-                <div class="table-responsive">
-                    <table class="mb-auto table table-hover table-dark px-3 container">
-                    <thead>
+            <main className="px-3 container">
+                <div className="table-responsive">
+                    <table className="mb-auto table table-hover table-dark px-3 container">
+                    <thead className="table-bordered">
                         <tr>
                         <th>Name</th>
                         <th>Price</th>
                         <th>24h %</th>
                         <th>24h Change</th>
+                        <th>24h Volume</th>
                         <th>Market cap</th>
-                        <th>Total Volume</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -84,8 +88,8 @@ export default function Home(props) {
                                 {formatDollar(coins.price_change_24h, 6)}
                                 </span>
                             </td>
-                            <td>{formatDollar(coins.market_cap, 12)}</td>
                             <td>{formatDollar(coins.total_volume, 12)}</td>
+                            <td>{formatDollar(coins.market_cap, 12)}</td>
                         </tr>
                         ))}
                     </tbody>
