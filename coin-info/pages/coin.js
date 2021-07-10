@@ -29,7 +29,7 @@ export default function Home(props) {
       </Head>
 
     <body className="d-flex h-100 text-center text-white bg-dark">
-        <div className="d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> 
             <header className="mb-auto">
                 <div>
                     <a href="/">
