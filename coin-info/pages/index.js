@@ -28,11 +28,13 @@ export default function Home() {
                 </div>
             </header>
         
-            <main className="px-3 container">
+            <main>
                 <div className="typewriter">
                     <h1>Manage your assets.</h1>
                 </div>
-                <p className="lead">Twofold is an online platform for Stock and Cryptocurrency. Track the progress of your favourite assets with accurate and regularly updated figures.</p>
+                <div className="homeParagraph">
+                    <p>Twofold is an online platform for Stock and Cryptocurrency. Track the progress of your favourite assets with accurate and regularly updated figures.</p>
+                </div>
             </main>
 
             <footer className="mt-auto text-white-50">
