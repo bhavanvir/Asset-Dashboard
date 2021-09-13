@@ -1,7 +1,9 @@
 body {
-  font-family: "Inter", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   justify-content: center;
   max-width: 100%;
+  width: calc(100vw - 34px);
+  font-size: 0.875rem;
 }
 
 div.wrapper {
@@ -9,7 +11,6 @@ div.wrapper {
   height: 500px;
   overflow: auto;
 }
-
 
 /* navigation bar */
 .nav-masthead .nav-link {
@@ -29,13 +30,15 @@ div.wrapper {
   margin-left: 1rem;
 }
 
+/*Color of the actively used nav-bar button*/
 .nav-masthead .active {
   color: #fff;
-  border-bottom-color: #fff;
+  border-bottom-color: #563D7C;
 }
 
+/*Adjust to widen nav-bar and body*/
 .cover-container {
-  max-width: 42em;
+  max-width: 55em;
 }
 
 .img-icons {
@@ -62,7 +65,7 @@ div.wrapper {
 /* front-page typewriter animation */
 .typewriter h1 {
   overflow: hidden;
-  border-right: .15em solid #fff;
+  border-right: .15em solid #563D7C;
   white-space: nowrap;
   margin: 0 auto;
   letter-spacing: 2px;
@@ -93,7 +96,7 @@ div.wrapper {
   }
 
   50% {
-    border-color: #fff;
+    border-color: #563D7C;
   }
 }
 
@@ -107,4 +110,72 @@ html {
 
 .vert-spacing {
   margin-top: 35px;
+}
+
+/*Custom scrollbar (Currently works for chrome)*/
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #563D7C;
+  border-radius: 10px;
+}
+
+/*Adjusts color when cursor is hovered over scrollbar*/
+::-webkit-scrollbar-thumb:hover {
+  background: #442f64;
+}
+
+/*Home page description paragraph*/
+.homeParagraph {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+.table-bordered {
+  border-color: #2c3034;
+}
+
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-bottom-color: #2c3034 !important;
+}
+
+.table-body-color {
+  color: #9b9b9b !important;
+  --bs-table-bg: #343a40 !important;
+}
+
+.coin-id-text {
+  color: #fff;
+  font-weight: 700;
+}
+
+.bg-dark {
+  background-color: #121212 !important;
+}
+
+.table-dark {
+  --bs-table-bg: #121212;
+  --bs-table-striped-bg: #2c3034;
+  --bs-table-striped-color: #fff;
+  --bs-table-active-bg: #373b3e;
+  --bs-table-active-color: #fff;
+  --bs-table-hover-bg: #323539;
+  --bs-table-hover-color: #fff;
+  color: #9b9b9b;
 }
