@@ -48,21 +48,21 @@ export default function Home(props) {
             </header>
             <main className="px-3 container">
                 <div className="table-responsive">
-                    <table className="vert-spacing mb-auto table table-hover table-dark px-3 container">
+                    <table className="vert-spacing mb-auto table table-dark px-3 container" >
                     <thead className="table-bordered">
-                        <tr>
-                        <th>Name</th>
+                        <tr class="table-body-color">
+                        <th>Coin</th>
                         <th>Price</th>
                         <th>24h %</th>
                         <th>24h Change</th>
                         <th>24h Volume</th>
-                        <th>Market cap</th>
+                        <th>Market Cap</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.map(coins => (
                         <tr key={coins.id}>
-                            <td>
+                            <td class="coin-id-text" align="left">
                             <img 
                                 src={coins.image} 
                                 style={{width: 25, height: 25, marginRight: 10}} 
@@ -76,7 +76,7 @@ export default function Home(props) {
                                     'text-success' 
                                     ) : 'text-danger'}
                                 >
-                                {formatDollar(coins.price_change_percentage_24h)}
+                                {formatPercent(coins.price_change_percentage_24h)}
                                 </span>
                             </td>
                             <td>
@@ -89,7 +89,7 @@ export default function Home(props) {
                                 </span>
                             </td>
                             <td>{formatDollar(coins.total_volume, 12)}</td>
-                            <td>{formatDollar(coins.market_cap, 12)}</td>
+                            <td align="right">{formatDollar(coins.market_cap, 12)}</td>
                         </tr>
                         ))}
                     </tbody>
