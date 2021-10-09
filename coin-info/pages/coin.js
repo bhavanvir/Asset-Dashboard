@@ -29,7 +29,8 @@ export default function Home(props) {
       </Head>
 
     <body className="d-flex h-100 text-center text-white bg-dark">
-        <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> 
+        <div className="d-flex w-100 h-100 p-3 mx-auto flex-column"> 
+          <div className="nav-bar-container mx-auto w-100">
             <header className="mb-auto">
                 <div>
                     <a href="/">
@@ -48,7 +49,8 @@ export default function Home(props) {
                     </nav>
                 </div>
             </header>
-            <main className="px-3 container">
+          </div>
+            <main className="px-3 container table-container">
                 <div className="table-responsive">
                     <table className="vert-spacing mb-auto table table-dark px-3 container" >
                     <thead className="table-bordered">
