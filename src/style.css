@@ -36,9 +36,14 @@ div.wrapper {
   border-bottom-color: #563D7C;
 }
 
-/*Adjust to widen nav-bar and body*/
-.cover-container {
+/*nav-bar container sizing*/
+.nav-bar-container {
   max-width: 55em;
+}
+
+/*Table container sizing*/
+.table-container {
+  max-width: 80em;
 }
 
 .img-icons {
@@ -64,6 +69,7 @@ div.wrapper {
 
 /* front-page typewriter animation */
 .typewriter h1 {
+  line-height: 1.4em;
   overflow: hidden;
   border-right: .15em solid #563D7C;
   white-space: nowrap;
@@ -138,8 +144,9 @@ html {
 /*Home page description paragraph*/
 .homeParagraph {
   margin: auto;
-  width: 60%;
+  width: 30%;
   padding: 10px;
+  font-size: 16px;
 }
 
 .table-bordered {
