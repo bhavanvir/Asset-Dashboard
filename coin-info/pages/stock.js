@@ -27,26 +27,28 @@ export default function Home({ data }) {
       </Head>
 
     <body className="d-flex h-100 text-center text-white bg-dark">
-        <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column"> 
-            <header className="mb-auto">
-                <div>
-                    <a href="/">
-                      <img className="float-md-start mb-0 img-icons" src={Logo}/>
-                    </a>
-                    <h3 className="float-md-start mb-0">Twofold</h3>
-                    <nav className="nav nav-masthead justify-content-center float-md-end">
-                        <Link href="/">
-                            <a className="nav-link">Home</a>
-                        </Link>
-                        <a className="nav-link active" aria-current="page">Stocks</a>
-                        <Link href="/coin">
-                        <a className="nav-link">Coins</a>
-                        </Link>
+        <div className="d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <div className="nav-bar-container mx-auto w-100"> 
+                <header className="mb-auto">
+                    <div>
+                        <a href="/">
+                            <img className="float-md-start mb-0 img-icons" src={Logo}/>
+                        </a>
+                        <h3 className="float-md-start mb-0">Twofold</h3>
+                        <nav className="nav nav-masthead justify-content-center float-md-end">
+                            <Link href="/">
+                                <a className="nav-link">Home</a>
+                            </Link>
+                                <a className="nav-link active" aria-current="page">Stocks</a>
+                            <Link href="/coin">
+                                <a className="nav-link">Coins</a>
+                            </Link>
                         <a className="nav-link" href="#">About</a>
-                    </nav>
-                </div>
-            </header>
-            <main className="px-3 container">
+                        </nav>
+                    </div>
+                </header>
+            </div>
+            <main className="px-3 container table-container">
                 <div className="table-responsive">
                     <table className="vert-spacing mb-auto table table-dark px-3 container" >
                     <thead className="table-bordered">
