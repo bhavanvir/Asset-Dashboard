@@ -12,8 +12,8 @@ export default function Home() {
       </Head>
 
       <body className="d-flex h-100 text-center text-white bg-dark">
-        <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-            <header className="mb-auto">
+        <div className="d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header className="nav-bar-container mx-auto w-100 mb-auto">
                 <div>
                     <img className="float-md-start mb-0 img-icons" src={Logo}/>
                     <h3 className="float-md-start mb-0">Twofold</h3>
