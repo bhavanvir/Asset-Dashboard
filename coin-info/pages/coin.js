@@ -40,7 +40,9 @@ export default function Home(props) {
                         <Link href="/">
                             <a className="nav-link">Home</a>
                         </Link>
+                        <Link href="/stock">
                         <a className="nav-link" href="#">Stocks</a>
+                        </Link>
                         <a className="nav-link active" aria-current="page">Coins</a>
                         <a className="nav-link" href="#">About</a>
                     </nav>
@@ -50,7 +52,7 @@ export default function Home(props) {
                 <div className="table-responsive">
                     <table className="vert-spacing mb-auto table table-dark px-3 container" >
                     <thead className="table-bordered">
-                        <tr class="table-body-color">
+                        <tr className="table-body-color">
                         <th>Coin</th>
                         <th>Price</th>
                         <th>24h %</th>
@@ -62,7 +64,7 @@ export default function Home(props) {
                     <tbody>
                         {data.map(coins => (
                         <tr key={coins.id}>
-                            <td class="coin-id-text" align="left">
+                            <td className="coin-id-text" align="left">
                             <img 
                                 src={coins.image} 
                                 style={{width: 25, height: 25, marginRight: 10}} 
@@ -73,7 +75,7 @@ export default function Home(props) {
                             <td> 
                                 <span
                                     className={coins.price_change_percentage_24h > 0 ? (
-                                    'text-success' 
+                                    'text-success'
                                     ) : 'text-danger'}
                                 >
                                 {formatPercent(coins.price_change_percentage_24h)}
