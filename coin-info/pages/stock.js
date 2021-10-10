@@ -50,21 +50,21 @@ export default function Home({ data }) {
             </div>
             <main className="px-3 container table-container">
                 <div className="table-responsive">
-                    <table className="vert-spacing mb-auto table table-dark px-3 container" >
+                    <table className="vert-spacing mb-auto table table-dark px-3 container-animation" >
                     <thead className="table-bordered">
                         <tr className="table-body-color">
-                        <th>Ticker</th>
-                        <th>Company Name</th>
+                        <th className="th-align-left">Company Name</th>
+                        <th></th>
                         <th>Price</th>
                         <th>24h Change</th>
-                        <th>24h %</th>
+                        <th className="th-align-right">24h %</th>
                         </tr>
                     </thead>
                     <tbody>
                         {mostActiveStock.map(stock => (
                             <tr key={stock.ticker}>
-                                <td className="coin-id-text" align="left">{stock.ticker}</td>
-                                <td>{stock.companyName}</td>
+                                <td className="coin-id-text" align="left">{stock.companyName}</td>
+                                <td>{stock.ticker}</td>
                                 <td>{formatDollar(stock.price, 4)}</td>
                                 <td> 
                                 <span
@@ -75,7 +75,7 @@ export default function Home({ data }) {
                                     {formatDollar(stock.changes)}
                                 </span>
                             </td>
-                                <td> 
+                                <td align="right"> 
                                 <span
                                     className={stock.changesPercentage > 0 ? (
                                         'text-success'

@@ -52,27 +52,31 @@ export default function Home(props) {
           </div>
             <main className="px-3 container table-container">
                 <div className="table-responsive">
-                    <table className="vert-spacing mb-auto table table-dark px-3 container" >
+                    <table className="vert-spacing mb-auto table table-dark px-3 container-animation" >
                     <thead className="table-bordered">
                         <tr className="table-body-color">
-                        <th>Coin</th>
+                        <th>#</th>
+                        <th className="th-align-left">Coin</th>
+                        <th></th>
                         <th>Price</th>
                         <th>24h %</th>
                         <th>24h Change</th>
                         <th>24h Volume</th>
-                        <th>Market Cap</th>
+                        <th className="th-align-right">Market Cap</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.map(coins => (
                         <tr key={coins.id}>
+                            <td>{coins.market_cap_rank}</td>
                             <td className="coin-id-text" align="left">
                             <img 
                                 src={coins.image} 
                                 style={{width: 25, height: 25, marginRight: 10}} 
                             />
-                            {coins.symbol.toUpperCase()}
+                            {coins.name}
                             </td>
+                            <td>{coins.symbol.toUpperCase()}</td>
                             <td>{formatDollar(coins.current_price, 20)}</td>
                             <td> 
                                 <span
@@ -109,7 +113,8 @@ export default function Home(props) {
 export async function getServerSideProps(context) {
   const result = await coinGeckoClient.coins.markets({
     order: CoinGecko.ORDER.MARKET_CAP_DESC,
-    vs_currency: 'cad'
+    vs_currency: 'cad',
+    sparkline: 'true'
   });
   return {
     props: {

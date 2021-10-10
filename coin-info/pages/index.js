@@ -13,7 +13,7 @@ export default function Home() {
 
       <body className="d-flex h-100 text-center text-white bg-dark">
         <div className="d-flex w-100 h-100 p-3 mx-auto flex-column">
-            <header className="nav-bar-container mx-auto w-100 mb-auto">
+            <header className="nav-bar-container mx-auto w-100 mb-auto container-animation">
                 <div>
                     <img className="float-md-start mb-0 img-icons" src={Logo}/>
                     <h3 className="float-md-start mb-0">Twofold</h3>
@@ -34,12 +34,12 @@ export default function Home() {
                 <div className="typewriter">
                     <h1>Manage your assets.</h1>
                 </div>
-                <div className="homeParagraph">
+                <div className="homeParagraph container-animation">
                     <p>Twofold is an online platform for Stock and Cryptocurrency. Track the progress of your favourite assets with accurate and regularly updated figures.</p>
                 </div>
             </main>
 
-            <footer className="mt-auto text-white-50">
+            <footer className="mt-auto text-white-50 container-animation">
                 <p>Developed by <a href="https://github.com/bhavanvir" className="text-white">@bhavanvir</a> and <a href="https://github.com/alexwholland" className="text-white">@alexwholland</a>.</p>
             </footer>
         </div>
