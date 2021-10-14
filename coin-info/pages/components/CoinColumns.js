@@ -21,7 +21,10 @@ export const COLUMNS = [
     ),
   },
   {
-    Header: 'Coin',
+    Header: () => (
+      <div style={{ textAlign: "left", marginLeft: 10 }}>Coins</div>
+    ),
+    id: 'coin',
     accessor: d => (
       <div className="row">
         <div className="center block th-align-left coin-id-text">
@@ -37,7 +40,10 @@ export const COLUMNS = [
     ),
   },
   {
-    Header: 'Price',
+    Header: () => (
+      <div style={{ textAlign: "right" }}>Price</div>
+    ),
+    id: 'price',
     accessor: d => (
       <div className="center th-align-right">
         {formatDollar(d.current_price,20)}
@@ -45,7 +51,10 @@ export const COLUMNS = [
     ),
   },
   {
-    Header: '24 %',
+    Header: () => (
+      <div style={{ textAlign: "right" }}>24 %</div>
+    ),
+    id: '24_percentage',
     accessor: d => (
       <div className="center th-align-right">
         <span
@@ -59,7 +68,10 @@ export const COLUMNS = [
     ),
   },
   {
-    Header: '24h Change',
+    Header: () => (
+      <div style={{ textAlign: "right" }}>24h Change</div>
+    ),
+    id: '24h_change',
     accessor: d => (
       <div className="center th-align-right">
         <span
@@ -73,7 +85,10 @@ export const COLUMNS = [
     ),
   },
   {
-    Header: '24h Volume',
+    Header: () => (
+      <div style={{ textAlign: "right" }}>24h Volume</div>
+    ),
+    id: '24h_volume',
     accessor: d => (
       <div className="center th-align-right">
         {formatDollar(d.total_volume, 12)}
@@ -81,7 +96,10 @@ export const COLUMNS = [
     ),
   },
   {
-    Header: 'Market Cap',
+    Header: () => (
+      <div style={{ textAlign: "right" }}>Market Cap</div>
+    ),
+    id: 'market_cap',
     accessor: d => (
       <div className="center th-align-right">
         {formatDollar(d.market_cap, 12)}
