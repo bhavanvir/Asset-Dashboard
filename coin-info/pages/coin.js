@@ -3,25 +3,9 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '../public/favicon-32x32.png'
-import CoinGecko from 'coingecko-api';
-const coinGeckoClient = new CoinGecko();
+import { CoinData } from './components/CoinData'
 
-export default function Home(props) {
-  const {data} = props.result;
-  console.log(data)
-  const formatPercent = number => 
-    `${new Number(number).toFixed(2)}%`
-
-  const formatDollar = (number, maximumSignificantDigits) =>
-    new Intl.NumberFormat(
-      'en-CA', 
-      { 
-        style: 'currency', 
-        currency: 'CAD',
-        maximumSignificantDigits
-      })
-      .format(number);
-
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -51,74 +35,10 @@ export default function Home(props) {
             </header>
           </div>
             <main className="px-3 container table-container">
-                <div className="table-responsive">
-                    <table className="vert-spacing mb-auto table table-dark px-3 container-animation" >
-                    <thead className="table-bordered">
-                        <tr className="table-body-color">
-                        <th>#</th>
-                        <th className="th-align-left">Coin</th>
-                        <th></th>
-                        <th>Price</th>
-                        <th>24h %</th>
-                        <th>24h Change</th>
-                        <th>24h Volume</th>
-                        <th className="th-align-right">Market Cap</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map(coins => (
-                        <tr key={coins.id}>
-                            <td>{coins.market_cap_rank}</td>
-                            <td className="coin-id-text" align="left">
-                            <img 
-                                src={coins.image} 
-                                style={{width: 25, height: 25, marginRight: 10}} 
-                            />
-                            {coins.name}
-                            </td>
-                            <td>{coins.symbol.toUpperCase()}</td>
-                            <td>{formatDollar(coins.current_price, 20)}</td>
-                            <td> 
-                                <span
-                                    className={coins.price_change_percentage_24h > 0 ? (
-                                    'text-success'
-                                    ) : 'text-danger'}
-                                >
-                                {formatPercent(coins.price_change_percentage_24h)}
-                                </span>
-                            </td>
-                            <td>
-                                <span
-                                    className={coins.price_change_24h > 0 ? (
-                                    'text-success' 
-                                    ) : 'text-danger'}
-                                >
-                                {formatDollar(coins.price_change_24h, 6)}
-                                </span>
-                            </td>
-                            <td>{formatDollar(coins.total_volume, 12)}</td>
-                            <td align="right">{formatDollar(coins.market_cap, 12)}</td>
-                        </tr>
-                        ))}
-                    </tbody>
-                    </table>
-                </div>
+                <CoinData />
             </main>
-        </div>
+          </div>
     </body>
     </div>
   )
-}
-
-export async function getServerSideProps(context) {
-  const result = await coinGeckoClient.coins.markets({
-    order: CoinGecko.ORDER.MARKET_CAP_DESC,
-    vs_currency: 'cad',
-    sparkline: 'true'
-  });
-  return {
-    props: {
-      result
-    },
-  }
 }

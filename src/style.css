@@ -194,3 +194,23 @@ tr {
 .th-align-right {
   text-align: right;
 }
+
+.th-upper-case {
+  text-transform: uppercase;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.block {
+  width: 200px;
+  display: inline-block;
+}
+
+.center {
+  flex: content;
+  height: 45px;
+  line-height: 45px;
+}
