@@ -13,28 +13,17 @@ const formatDollar = (number, maximumSignificantDigits) =>
 
 export const COLUMNS = [
   {
-    Header: '#',
-    accessor: d => (
-      <div className="center">
-        {d.market_cap_rank}
-      </div>
-    ),
-  },
-  {
     Header: () => (
-      <div style={{ textAlign: "left", marginLeft: 10 }}>Coins</div>
+      <div style={{ textAlign: "left" }}>Companies</div>
     ),
-    id: 'coin',
+    id: 'company',
     accessor: d => (
       <div className="row">
         <div className="center block th-align-left id-text">
-          <img
-            src={d.image}
-            style={{ width: 25, height: 25, marginRight: 20, marginLeft: 10 }} />
-          {d.name}
+          {d.companyName}
         </div>
         <div className="center block th-align-right th-upper-case">
-          {d.symbol}
+          {d.ticker}
         </div>
       </div>
     ),
@@ -46,23 +35,23 @@ export const COLUMNS = [
     id: 'price',
     accessor: d => (
       <div className="center th-align-right">
-        {formatDollar(d.current_price,20)}
+        {formatDollar(d.price, 4)}
       </div>
     ),
   },
   {
     Header: () => (
-      <div style={{ textAlign: "right" }}>24 %</div>
+      <div style={{ textAlign: "right" }}>24h %</div>
     ),
     id: '24_percentage',
     accessor: d => (
       <div className="center th-align-right">
         <span
-            className={d.price_change_percentage_24h > 0 ? (
+            className={d.changesPercentage > 0 ? (
             'text-success'
             ) : 'text-danger'}
         >
-        {formatPercent(d.price_change_percentage_24h)}
+        {formatPercent(d.changesPercentage)}
         </span>
       </div>
     ),
@@ -75,35 +64,13 @@ export const COLUMNS = [
     accessor: d => (
       <div className="center th-align-right">
         <span
-          className={d.price_change_24h > 0 ? (
+          className={d.changes > 0 ? (
           'text-success' 
           ) : 'text-danger'}
       >
-      {formatDollar(d.price_change_24h)}
+      {formatDollar(d.changes)}
       </span>
       </div>
     ),
   },
-  {
-    Header: () => (
-      <div style={{ textAlign: "right" }}>24h Volume</div>
-    ),
-    id: '24h_volume',
-    accessor: d => (
-      <div className="center th-align-right">
-        {formatDollar(d.total_volume, 12)}
-      </div>
-    ),
-  },
-  {
-    Header: () => (
-      <div style={{ textAlign: "right" }}>Market Cap</div>
-    ),
-    id: 'market_cap',
-    accessor: d => (
-      <div className="center th-align-right">
-        {formatDollar(d.market_cap, 12)}
-      </div>
-    ),
-  }
 ]

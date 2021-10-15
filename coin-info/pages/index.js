@@ -15,7 +15,9 @@ export default function Home() {
         <div className="d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header className="nav-bar-container mx-auto w-100 mb-auto container-animation">
                 <div>
-                    <img className="float-md-start mb-0 img-icons" src={Logo}/>
+                    <img className="float-md-start mb-0 img-icons" 
+                    src={Logo}
+                    style={{marginRight: 5}}/>
                     <h3 className="float-md-start mb-0">Twofold</h3>
                     <nav className="nav nav-masthead justify-content-center float-md-end">
                       <a className="nav-link active" aria-current="page">Home</a>

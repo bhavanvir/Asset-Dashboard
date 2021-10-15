@@ -1,37 +1,32 @@
 import axios from 'axios'
 import React, { useEffect, useState, useMemo } from 'react'
 import { useTable } from 'react-table'
-import { COLUMNS } from './CoinColumns'
+import { COLUMNS } from './StockColumns'
 
-export function CoinData(props) {
-  const [coins, setCoins] = React.useState([]);
+export function StockData(props) {
+  const [mostActiveStock, setStocks] = React.useState([]);
 
-  const fetchCoins = async () => {
+  const fetchStocks = async () => {
 
-    const response = await axios.get("https://api.coingecko.com/api/v3/coins/markets", {
-      params: {
-        vs_currency: "cad",
-        per_page: "250",
-        page: "1",
-        sparkline: "true"
-      }
+    const response = await axios.get("https://financialmodelingprep.com/api/v3/stock/actives?apikey=5ad03cf4649705c9cdf569f3edc1f6a1", {
     }).catch(err => console.log(err));
 
+    
     if(response) {
-      const coins = response.data;
+      const { mostActiveStock = [] } = response.data;
 
-      console.log("Coins: ", coins);
-      setCoins(coins);
+      console.log("Stocks: ", mostActiveStock);
+      setStocks(mostActiveStock);
     }
   };
 
   useEffect(() => {
-    fetchCoins();
+    fetchStocks();
   }, []);
 
-  const coinsData = useMemo(() => [...coins], [coins]);
+  const stocksData = useMemo(() => [...mostActiveStock], [mostActiveStock]);
 
-  const tableInstance = useTable( { columns: COLUMNS, data: coinsData });
+  const tableInstance = useTable( { columns: COLUMNS, data: stocksData });
 
   const {
     getTableProps,

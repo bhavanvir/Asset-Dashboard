@@ -3,23 +3,9 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '../public/favicon-32x32.png'
+import { StockData } from './components/StockData'
 
-export default function Home({ data }) {
-  const { mostActiveStock = []} = data;
-
-  const formatPercent = number => 
-    `${new Number(number).toFixed(2)}%`
-
-  const formatDollar = (number, maximumSignificantDigits) =>
-    new Intl.NumberFormat(
-      'en-CA', 
-      { 
-        style: 'currency', 
-        currency: 'CAD',
-        maximumSignificantDigits
-      })
-      .format(number);
-
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -32,7 +18,9 @@ export default function Home({ data }) {
                 <header className="mb-auto">
                     <div>
                         <a href="/">
-                            <img className="float-md-start mb-0 img-icons" src={Logo}/>
+                        <img className="float-md-start mb-0 img-icons" 
+                            src={Logo}
+                            style={{marginRight: 5}}/>
                         </a>
                         <h3 className="float-md-start mb-0">Twofold</h3>
                         <nav className="nav nav-masthead justify-content-center float-md-end">
@@ -48,61 +36,11 @@ export default function Home({ data }) {
                     </div>
                 </header>
             </div>
-            <main className="px-3 container table-container">
-                <div className="table-responsive">
-                    <table className="vert-spacing mb-auto table table-dark px-3 container-animation" >
-                    <thead className="table-bordered">
-                        <tr className="table-body-color">
-                        <th className="th-align-left">Company Name</th>
-                        <th></th>
-                        <th>Price</th>
-                        <th>24h Change</th>
-                        <th className="th-align-right">24h %</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {mostActiveStock.map(stock => (
-                            <tr key={stock.ticker}>
-                                <td className="coin-id-text" align="left">{stock.companyName}</td>
-                                <td>{stock.ticker}</td>
-                                <td>{formatDollar(stock.price, 4)}</td>
-                                <td> 
-                                <span
-                                    className={stock.changes > 0 ? (
-                                        'text-success'
-                                    ) : 'text-danger'}
-                                >
-                                    {formatDollar(stock.changes)}
-                                </span>
-                            </td>
-                                <td align="right"> 
-                                <span
-                                    className={stock.changesPercentage > 0 ? (
-                                        'text-success'
-                                    ) : 'text-danger'}
-                                >
-                                    {formatPercent(stock.changesPercentage)}
-                                </span>
-                            </td>
-                        </tr>
-                        ))}
-                    </tbody>
-                    </table>
-                </div>
+            <main className="px-3 container table-container container-animation">
+                <StockData />
             </main>
         </div>
     </body>
     </div>
   )
-}
-
-export async function getServerSideProps(context) {
-    const res = await fetch('https://financialmodelingprep.com/api/v3/stock/actives?apikey=5ad03cf4649705c9cdf569f3edc1f6a1');
-    const data = await res.json();
-  
-    return {
-      props: {
-        data
-      },
-    }
 }

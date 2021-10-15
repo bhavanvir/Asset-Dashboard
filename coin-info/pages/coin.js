@@ -18,7 +18,9 @@ export default function Home() {
             <header className="mb-auto">
                 <div>
                     <a href="/">
-                      <img className="float-md-start mb-0 img-icons" src={Logo}/>
+                    <img className="float-md-start mb-0 img-icons" 
+                      src={Logo}
+                      style={{marginRight: 5}}/>
                     </a>
                     <h3 className="float-md-start mb-0">Twofold</h3>
                     <nav className="nav nav-masthead justify-content-center float-md-end">
@@ -34,7 +36,7 @@ export default function Home() {
                 </div>
             </header>
           </div>
-            <main className="px-3 container table-container">
+            <main className="px-3 container table-container container-animation">
                 <CoinData />
             </main>
           </div>
