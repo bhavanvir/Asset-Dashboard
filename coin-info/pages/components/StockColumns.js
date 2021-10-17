@@ -14,7 +14,7 @@ const formatDollar = (number, maximumSignificantDigits) =>
 export const COLUMNS = [
   {
     Header: () => (
-      <div style={{ textAlign: "left" }}>Companies</div>
+      <div style={{ textAlign: "left" }}>Company</div>
     ),
     id: 'company',
     accessor: d => (
@@ -47,11 +47,27 @@ export const COLUMNS = [
     accessor: d => (
       <div className="center th-align-right">
         <span
-            className={d.changesPercentage > 0 ? (
-            'text-success'
-            ) : 'text-danger'}
+          className={
+            d.changesPercentage < 0
+              ? "text-danger"
+              : "text-success"
+          }
         >
-        {formatPercent(d.changesPercentage)}
+          {" "}
+          {d.changesPercentage < 0 ? (
+            <div>
+              <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+              </svg>
+            </div>
+          ) : (
+            <div >
+              <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+              </svg>
+            </div>
+          )}
+          {formatDollar(Math.abs(d.changesPercentage))}
         </span>
       </div>
     ),
@@ -64,12 +80,24 @@ export const COLUMNS = [
     accessor: d => (
       <div className="center th-align-right">
         <span
-          className={d.changes > 0 ? (
-          'text-success' 
-          ) : 'text-danger'}
-      >
-      {formatDollar(d.changes)}
-      </span>
+          className={
+            d.changes < 0
+              ? "text-danger"
+              : "text-success"
+          }
+        >
+          {" "}
+          {d.changes < 0 ? (
+            <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+            </svg>
+          ) : (
+            <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+              <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+            </svg>
+          )}
+          {formatDollar(Math.abs(d.changes))}
+        </span>
       </div>
     ),
   },

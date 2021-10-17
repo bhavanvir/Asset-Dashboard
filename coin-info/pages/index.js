@@ -13,6 +13,7 @@ export default function Home() {
 
       <body className="d-flex h-100 text-center text-white bg-dark">
         <div className="d-flex w-100 h-100 p-3 mx-auto flex-column">
+          
             <header className="nav-bar-container mx-auto w-100 mb-auto container-animation">
                 <div>
                     <img className="float-md-start mb-0 img-icons" 
@@ -45,7 +46,7 @@ export default function Home() {
                 <p>Developed by <a href="https://github.com/bhavanvir" className="text-white">@bhavanvir</a> and <a href="https://github.com/alexwholland" className="text-white">@alexwholland</a>.</p>
             </footer>
         </div>
-    </body>
+      </body>
     </div>
   )
 }

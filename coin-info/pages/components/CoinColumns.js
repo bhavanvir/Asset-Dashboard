@@ -1,3 +1,5 @@
+import React from "react";
+
 const formatPercent = number => 
     `${new Number(number).toFixed(2)}%`
 
@@ -14,6 +16,7 @@ const formatDollar = (number, maximumSignificantDigits) =>
 export const COLUMNS = [
   {
     Header: '#',
+    id: 'number',
     accessor: d => (
       <div className="center">
         {d.market_cap_rank}
@@ -22,9 +25,9 @@ export const COLUMNS = [
   },
   {
     Header: () => (
-      <div style={{ textAlign: "left", marginLeft: 10 }}>Coins</div>
+      <div style={{ textAlign: "left", marginLeft: 10 }}>Name</div>
     ),
-    id: 'coin',
+    id: 'name',
     accessor: d => (
       <div className="row">
         <div className="center block th-align-left id-text">
@@ -58,11 +61,23 @@ export const COLUMNS = [
     accessor: d => (
       <div className="center th-align-right">
         <span
-            className={d.price_change_percentage_24h > 0 ? (
-            'text-success'
-            ) : 'text-danger'}
+          className={
+            d.price_change_percentage_24h < 0
+              ? "text-danger"
+              : "text-success"
+          }
         >
-        {formatPercent(d.price_change_percentage_24h)}
+          {" "}
+          {d.price_change_percentage_24h < 0 ? (
+            <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+            </svg>
+          ) : (
+            <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+              <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+            </svg>
+          )}
+          {formatPercent(Math.abs(d.price_change_percentage_24h))}
         </span>
       </div>
     ),
@@ -75,12 +90,24 @@ export const COLUMNS = [
     accessor: d => (
       <div className="center th-align-right">
         <span
-          className={d.price_change_24h > 0 ? (
-          'text-success' 
-          ) : 'text-danger'}
-      >
-      {formatDollar(d.price_change_24h)}
-      </span>
+          className={
+            d.price_change_24h < 0
+              ? "text-danger"
+              : "text-success"
+          }
+        >
+          {" "}
+          {d.price_change_24h < 0 ? (
+            <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+            </svg>
+          ) : (
+            <svg focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+              <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+            </svg>
+          )}
+          {formatDollar(Math.abs(d.price_change_24h))}
+        </span>
       </div>
     ),
   },
