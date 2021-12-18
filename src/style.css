@@ -232,3 +232,9 @@ tr {
 .svg-align {
   position: absolute;
 }
+
+.th-parent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

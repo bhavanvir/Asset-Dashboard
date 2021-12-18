@@ -18,15 +18,14 @@ export const COLUMNS = [
     Header: '#',
     id: 'number',
     accessor: d => (
-      <div className="center">
+      <div className="th-align-left">
         {d.market_cap_rank}
       </div>
     ),
   },
+
   {
-    Header: () => (
-      <div style={{ textAlign: "left", marginLeft: 10 }}>Name</div>
-    ),
+    Header: 'Name',
     id: 'name',
     accessor: d => (
       <div className="row">
@@ -36,30 +35,36 @@ export const COLUMNS = [
             style={{ width: 25, height: 25, marginRight: 20, marginLeft: 10 }} />
           {d.name}
         </div>
-        <div className="center block th-align-right th-upper-case">
-          {d.symbol}
-        </div>
       </div>
     ),
   },
+
   {
-    Header: () => (
-      <div style={{ textAlign: "right" }}>Price</div>
+    Header: '',
+    id: 'sym',
+    
+    accessor: d => (
+        <div className="th-align-left th-upper-case">
+          {d.symbol}
+        </div>
     ),
+  },
+
+  {
+    Header: 'Price',
     id: 'price',
     accessor: d => (
-      <div className="center th-align-right">
+      <div className="th-align-left">
         {formatDollar(d.current_price,20)}
       </div>
     ),
   },
+  
   {
-    Header: () => (
-      <div style={{ textAlign: "right" }}>24 %</div>
-    ),
+    Header: '24%',
     id: '24_percentage',
     accessor: d => (
-      <div className="center th-align-right">
+      <div className="th-align-left">
         <span
           className={
             d.price_change_percentage_24h < 0
@@ -82,13 +87,12 @@ export const COLUMNS = [
       </div>
     ),
   },
+
   {
-    Header: () => (
-      <div style={{ textAlign: "right" }}>24h Change</div>
-    ),
+    Header: '24h Change',
     id: '24h_change',
     accessor: d => (
-      <div className="center th-align-right">
+      <div className="th-align-left">
         <span
           className={
             d.price_change_24h < 0
@@ -111,24 +115,22 @@ export const COLUMNS = [
       </div>
     ),
   },
+
   {
-    Header: () => (
-      <div style={{ textAlign: "right" }}>24h Volume</div>
-    ),
+    Header: '24_volume',
     id: '24h_volume',
     accessor: d => (
-      <div className="center th-align-right">
+      <div className="th-align-left">
         {formatDollar(d.total_volume, 12)}
       </div>
     ),
   },
+
   {
-    Header: () => (
-      <div style={{ textAlign: "right" }}>Market Cap</div>
-    ),
+    Header: 'Market Cap',
     id: 'market_cap',
     accessor: d => (
-      <div className="center th-align-right">
+      <div className="th-align-left">
         {formatDollar(d.market_cap, 12)}
       </div>
     ),
