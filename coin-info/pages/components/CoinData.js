@@ -45,7 +45,7 @@ export function CoinData(props) {
     )
   return (
     <table className="vert-spacing mb-auto table table-dark px-3 table-hover" {...getTableProps()}>
-      <thead className="th-align-left">
+      <thead className="th-align-left table-bordered">
         {headerGroups.map((headerGroup,) => (
           <tr className="table-body-color" {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
