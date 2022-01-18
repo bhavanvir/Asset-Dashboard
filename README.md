@@ -1,2 +1,2 @@
-Stock and Cryptocurrency dashboard
+#Stock and Cryptocurrency dashboard
 Currently a WIP
