@@ -1,3 +1,2 @@
-# miniature-dollop
-Stock and Crypto dashboard
-Currently WIP
+Stock and Cryptocurrency dashboard
+Currently a WIP
