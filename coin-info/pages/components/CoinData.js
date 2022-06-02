@@ -11,7 +11,7 @@ export function CoinData(props) {
     const response = await axios.get("https://api.coingecko.com/api/v3/coins/markets", {
       params: {
         vs_currency: "cad",
-        per_page: "250",
+        per_page: "100",
         page: "1",
         sparkline: "true"
       }
@@ -45,7 +45,7 @@ export function CoinData(props) {
     )
   return (
     <table className="vert-spacing mb-auto table table-dark px-3 table-hover" {...getTableProps()}>
-      <thead className="table-bordered">
+      <thead className="th-align-left table-bordered">
         {headerGroups.map((headerGroup,) => (
           <tr className="table-body-color" {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
